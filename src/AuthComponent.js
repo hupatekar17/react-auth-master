@@ -43,15 +43,19 @@ export default function AuthComponent() {
 
   return (
     <div className="text-center">
-      <h1>Auth Component</h1>
+    
 
-      {/* displaying our message from our API call */}
-      <h3 className="text-danger">{message}</h3>
+      {/* displaying our message from our API call
+      <h3 className="text-danger">{message} </h3> */}
+
+      <h1 className="text-left text-teal-500">BES Consultants</h1>
 
       {/* logout */}
-      <Button type="submit" variant="danger" onClick={() => logout()}>
-        Logout
-      </Button>
-    </div>
+      <button type="submit" className="btn btn-danger" style={{ marginLeft: '83vw' , marginTop: '-38vh' }} onClick={logout}>Logout</button>
+
+
+
+     
+      </div>
   );
 }

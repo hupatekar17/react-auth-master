@@ -68,6 +68,9 @@ export default function Register() {
         >
           Register
         </Button>
+        <Button href="\login" className="mx-[5px]">
+        Login
+        </Button>
 
         {/* display success message */}
         {register ? (

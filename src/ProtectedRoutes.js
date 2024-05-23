@@ -20,7 +20,7 @@ export default function ProtectedRoutes({ component: Component, ...rest }) {
         } else {
           // return the user to the landing page if there is no valid token set
           return (
-            <Redirect
+            <Redirect 
               to={{
                 pathname: "/",
                 state: {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { Col, Row } from "react-bootstrap";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
@@ -43,6 +44,9 @@ export default function Login() {
 
   return (
     <>
+      <Col xs={12} sm={12} md={6} lg={6}>
+    
+  
       <h2>Login</h2>
       <Form onSubmit={(e) => handleSubmit(e)}>
         {/* email */}
@@ -85,6 +89,7 @@ export default function Login() {
           <p className="text-danger">You Are Not Logged in</p>
         )}
       </Form>
+      </Col>
     </>
   );
 }
