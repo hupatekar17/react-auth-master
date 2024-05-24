@@ -8,6 +8,7 @@ const MaterialApprovedTable = () => {
   const [selectedSubmissionDates, setSelectedSubmissionDates] = useState([null, null, null]);
   const [selectedApprovalDates, setSelectedApprovalDates] = useState([null, null, null]);
   const [pendingIssues, setPendingIssues] = useState(['', '', '']);
+  const [documentTypes, setDocumentTypes] = useState(['', '', '']);
   const [statusOptions, setStatusOptions] = useState(['Pending', 'Pending', 'Pending']); // Defaulting all to Pending
 
   const handleSubmissionDateChange = (date, index) => {
@@ -28,6 +29,12 @@ const MaterialApprovedTable = () => {
     setPendingIssues(newPendingIssues);
   };
 
+  const handleDocumentTypeChange = (event, index) => {
+    const newDocumentTypes = [...documentTypes];
+    newDocumentTypes[index] = event.target.value;
+    setDocumentTypes(newDocumentTypes);
+  };
+
   const handleStatusChange = (event, index) => {
     const newStatusOptions = [...statusOptions];
     newStatusOptions[index] = event.target.value;
@@ -40,10 +47,11 @@ const MaterialApprovedTable = () => {
         <thead className="bg-gray-100">
           <tr className="text-gray-800">
             <th className="px-4 py-2">Sr.No</th>
-            <th className="px-4 py-2">Element/Item</th>
-            <th className="px-4 py-2">Document Type</th>
-            <th className="px-4 py-2">BES Comment</th>
-            <th className="px-4 py-2">Status</th>
+            <th className="px-4 py-2"> Element/Item </th>
+            <th className="px-4 py-2">Document/Sample </th>
+            <th className="px-4 py-2">Document Type </th> 
+            <th className="px-4 py-2">BES Comment </th>
+            <th className="px-4 py-2">Status </th>
           </tr>
         </thead>
         <tbody>
@@ -51,13 +59,26 @@ const MaterialApprovedTable = () => {
             <tr key={index}>
               <td className="border px-4 py-2">{index}</td>
               <td className="border px-4 py-2">
-                <input type="text" className="w-full border px-2 py-1" />
+                <input type="text" className="w-full border px-2 py-1 resize-none" onChange={(event) => handlePendingIssueChange(event, index - 1)} value={pendingIssues[index - 1]} />
               </td>
               <td className="border px-4 py-2">
-                <input type="text" className="w-full border px-2 py-1" />
+                <input type="text" className="w-full border px-2 py-1 resize-none" />
               </td>
               <td className="border px-4 py-2">
-                <input type="text" className="w-full border px-2 py-1" />
+                <select
+                  value={documentTypes[index - 1]}
+                  onChange={(event) => handleDocumentTypeChange(event, index - 1)}
+                  className="w-full border px-2 py-1"
+                >
+                  <option value="">Select Document Type</option>
+                  <option value="Sample">Sample</option>
+                  <option value="Laboratory Tests">Laboratory Tests</option>
+                  <option value="Information">Information</option>
+                  <option value="Suppl-Certificate">Suppl-Certificate</option>
+                </select>
+              </td>
+              <td className="border px-4 py-2">
+                <input type="text" className="w-full border px-2 py-1 resize-none" />
               </td>
               <td className="border px-4 py-2">
                 <select
@@ -79,4 +100,3 @@ const MaterialApprovedTable = () => {
 };
 
 export default MaterialApprovedTable;
-    
