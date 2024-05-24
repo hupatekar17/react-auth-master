@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import DrawingApprovalTable from "./DrawingApprovalTable";
 import Cookies from "universal-cookie";
+import MaterialApprovedTable from "./MaterialApprovedTable";
 const cookies = new Cookies();
 
 // get token generated on login
@@ -41,21 +43,36 @@ export default function AuthComponent() {
     window.location.href = "/";
   }
 
+
+
   return (
     <div className="text-center">
     
 
       {/* displaying our message from our API call
       <h3 className="text-danger">{message} </h3> */}
+   <h1 className="mt-[-15px] text-left text-teal-500">BES Consultants</h1>
 
-      <h1 className="text-left text-teal-500">BES Consultants</h1>
-
+   
       {/* logout */}
       <button type="submit" className="btn btn-danger" style={{ marginLeft: '83vw' , marginTop: '-38vh' }} onClick={logout}>Logout</button>
+      
+      <div className="flex items-center justify-center">
+           <button class="rounded-full bg-blue-300 mx-1  border-2	 ">Drawing Approval</button>
+           <button class="rounded-full bg-blue-300 mx-1 ">Material Approval</button>
+           <button class="rounded-full bg-blue-300 mx-1 ">QAQC</button>
 
 
-
-     
+           
       </div>
+
+      <MaterialApprovedTable/>
+
+
+      
+
+</div>
+     
+  
   );
 }
