@@ -42,16 +42,16 @@ const MaterialApprovedTable = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-4"> {/* Added mt-4 class for margin-top */}
       <table className="table-auto w-full border-collapse border border-gray-200">
         <thead className="bg-gray-100">
           <tr className="text-gray-800">
             <th className="px-4 py-2">Sr.No</th>
             <th className="px-4 py-2"> Element/Item </th>
-            <th className="px-4 py-2">Document/Sample </th>
-            <th className="px-4 py-2">Document Type </th> 
+            <th className="px-4 py-2 " style={{ width: "150px" }}>Document/Sample </th>
+            <th className="px-4 py-2" >Document Type </th> {/* Increased width */}
             <th className="px-4 py-2">BES Comment </th>
-            <th className="px-4 py-2">Status </th>
+            <th className="px-4 py-2" style={{ width: "150px" }}>Status </th> {/* Increased width */}
           </tr>
         </thead>
         <tbody>
